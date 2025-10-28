@@ -14,29 +14,9 @@ pipeline {
             }
         }
         
-        stage('Build Application') {
-            steps {
-                script {
-                    // For Python - check if requirements.txt exists
-                    bat '''
-                        if exist requirements.txt (
-                            pip install -r requirements.txt
-                        ) else (
-                            echo No requirements.txt found
-                        )
-                    '''
-                }
-            }
-        }
+        // REMOVED Build Application stage - Docker will handle it
         
-        stage('Run Tests') {
-            steps {
-                script {
-                    // For Python - skip if pytest not available
-                    bat 'pytest || exit 0'
-                }
-            }
-        }
+        // REMOVED Run Tests stage - Docker will handle it
         
         stage('Build Docker Image') {
             steps {
@@ -60,7 +40,6 @@ pipeline {
         stage('Run Docker Container') {
             steps {
                 script {
-                    // Adjust port based on your Python app (Flask uses 5000, change if needed)
                     bat "docker run -d --name %CONTAINER_NAME% -p 8080:5000 %DOCKER_IMAGE%"
                 }
             }

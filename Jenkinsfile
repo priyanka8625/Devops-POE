@@ -10,21 +10,15 @@ pipeline {
         stage('Checkout') {
             steps {
                 git branch: 'main', 
-                    url: 'https://github.com/YOUR_USERNAME/YOUR_REPO.git'
+                    url: 'https://github.com/priyanka8625/Devops-POE.git'
             }
         }
         
         stage('Build Application') {
             steps {
                 script {
-                    // For Node.js
-                    bat 'npm install'
-                    
-                    // For Java (Maven)
-                    // bat 'mvn clean package'
-                    
-                    // For Python
-                    // bat 'pip install -r requirements.txt'
+                    For Python
+                    bat 'pip install -r requirements.txt'
                 }
             }
         }
@@ -32,14 +26,8 @@ pipeline {
         stage('Run Tests') {
             steps {
                 script {
-                    // For Node.js (ignore errors if tests fail)
-                    bat 'npm test || exit 0'
-                    
-                    // For Java
-                    // bat 'mvn test'
-                    
-                    // For Python
-                    // bat 'pytest'
+                    For Python
+                    bat 'pytest'
                 }
             }
         }

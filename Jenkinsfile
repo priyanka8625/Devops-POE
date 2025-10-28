@@ -9,7 +9,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 // Checkout the app from GitHub
-                git 'https://github.com/yourusername/simple-flask-app.git'
+                git 'https://github.com/priyanka8625/Devops-POE.git'
             }
         }
 
